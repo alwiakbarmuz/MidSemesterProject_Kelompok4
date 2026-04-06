@@ -33,3 +33,19 @@
     $accent = $colors[$accent] ?? $colors['emerald'];
     $iconAccent = $iconBg[$accent] ?? $iconBg['emerald'];
 @endphp
+
+<div class="rounded-2xl border p-4 {{ $accent }}">
+    <div class="flex items-center gap-3">
+        <div class="rounded-full p-2 {{ $iconAccent }}">
+            {{ $icon }}
+        </div>
+        <div>
+            <p class="text-sm font-medium">
+                {{ $title }}
+            </p>
+            <p class="text-2xl font-bold text-white">
+                {{ $value }}
+            </p>
+        </div>
+    </div>
+</div>
