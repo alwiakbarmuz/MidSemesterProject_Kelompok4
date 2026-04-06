@@ -69,3 +69,58 @@
 
     </div>
 </div>
+
+<section class="mt-8 grid gap-5 xl:grid-cols-[1.5fr_1fr]">
+    <div class="rounded-[30px] border border-slate-800 bg-slate-900/95 p-6 shadow-xl shadow-slate-950/20">
+        <div class="flex items-center justify-between gap-3">
+            <div>
+                <p class="text-sm uppercase tracking-[0.24em] text-slate-400">Ringkasan</p>
+                <h2 class="mt-2 text-2xl font-semibold text-white">Selamat datang kembali,
+                    Administrator!
+                </h2>
+            </div>
+            <button @click="showReportModal = true"
+                class="rounded-2xl border border-slate-700 bg-white/5 px-4 py-2 text-sm text-slate-100 transition hover:bg-white/10">Lihat
+                laporan</button>
+        </div>
+
+        <div class="mt-6 grid gap-4 sm:grid-cols-2">
+            <div class="rounded-3xl border border-slate-800 bg-slate-950/90 p-4 cursor-pointer transition"
+                @click="selectedCard = 'conversion'" :class="{ 'ring-2 ring-cyan-500': selectedCard === 'conversion' }">
+                <p class="text-sm text-slate-400">Tingkat konversi</p>
+                <p class="mt-2 text-3xl font-semibold text-white">18.4%</p>
+            </div>
+            <div class="rounded-3xl border border-slate-800 bg-slate-900 text-slate-100 p-4 cursor-pointer transition"
+                @click="selectedCard = 'registration'"
+                :class="{ 'ring-2 ring-slate-600': selectedCard === 'registration' }">
+                <p class="text-sm text-slate-400">Pendaftaran baru</p>
+                <p class="mt-2 text-3xl font-semibold">324</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="rounded-[30px] border border-slate-800 bg-slate-900/95 text-white p-6 shadow-xl shadow-slate-950/10">
+        <div class="flex items-center justify-between">
+            <div>
+                <p class="text-sm uppercase tracking-[0.24em] text-slate-400">Tindakan cepat</p>
+                <h3 class="mt-2 text-xl font-semibold">Kelola aktivitas</h3>
+            </div>
+        </div>
+
+        <div class="mt-6 grid gap-3">
+            <a href="{{ route('admin', ['section' => 'users']) }}"
+                class="block rounded-3xl bg-slate-100 px-4 py-3 text-sm font-semibold text-slate-950 transition hover:bg-slate-200">Kelola
+                pengguna</a>
+            <a href="{{ route('admin', ['section' => 'reports']) }}"
+                class="block rounded-3xl bg-slate-100 px-4 py-3 text-sm font-semibold text-slate-950 transition hover:bg-slate-200">Lihat
+                laporan</a>
+            <a href="{{ route('admin', ['section' => 'settings']) }}"
+                class="block rounded-3xl bg-slate-100 px-4 py-3 text-sm font-semibold text-slate-950 transition hover:bg-slate-200">Pengaturan
+                umum</a>
+        </div>
+    </div>
+</section>
+
+<section class="mt-8">
+    <x-admin.data-table title="Aktivitas Terbaru" />
+</section>
